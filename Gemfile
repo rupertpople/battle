@@ -5,4 +5,5 @@ group :development do
     gem 'sinatra-contrib'
     gem 'rspec'
     gem 'capybara'
+    gem 'puma'
 end
