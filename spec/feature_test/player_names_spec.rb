@@ -9,10 +9,7 @@ feature 'Take player names' do
         expect(page).to have_button("Submit")
     end
     scenario 'Display player names' do
-        visit('/name-form')
-        fill_in 'p1name', with: 'Ash'
-        fill_in 'p2name', with: 'Bash'
-        click_button('Submit')
+        sign_in_and_play
         expect(page).to have_content("Ash")
     end
 end
