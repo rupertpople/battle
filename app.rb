@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/player'
 
 class Battle < Sinatra::Base
   configure :development do
@@ -8,7 +9,7 @@ class Battle < Sinatra::Base
 enable :sessions
   # our routes would go here
 get '/' do
-    p 'Testing infrastructure working!'
+    redirect to('/name-form')
 end
 
 get '/name-form' do
@@ -24,7 +25,9 @@ end
 get '/play' do
   @p1name = session['p1name']
   @p2name = session['p2name']
-   erb :play
+  @player1 = Player.new
+  @player2 = Player.new
+  erb :play
 end  
 
   # # Start the server if this file is executed directly (do not change the line below)
